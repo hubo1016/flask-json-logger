@@ -9,4 +9,4 @@ install:
   - "python setup.py install"
   - "pip install coverage requests"
 # command to run tests
-script:  bash -xe test.sh
+script:  python test.py
