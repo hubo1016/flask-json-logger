@@ -1,4 +1,4 @@
-from __future__ import print_function
+from __future__ import print_function, unicode_literals
 from subprocess import Popen
 
 
@@ -6,11 +6,13 @@ if __name__ == '__main__':
     import requests
     import json
     import os
-    import signal
+    import time
+
     os.environ['FLASK_APP'] = 'example.py'
     p = Popen(["python", "-m", "flask", "run", "-h", "127.0.0.1", "-p", "8999"],
-               shell=False)
+              shell=False)
     try:
+        time.sleep(1)
         r = requests.get('http://127.0.0.1:8999/')
         r.raise_for_status()
         assert r.text == "hello world"
